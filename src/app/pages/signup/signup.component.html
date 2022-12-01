@@ -1,0 +1,30 @@
+<div class="container">
+  <form>
+    <div>
+      <input
+        type="email"
+        placeholder="your@email.com"
+        name="email"
+        [(ngModel)]="email"
+      />
+    </div>
+    <div>
+      <input
+        type="password"
+        placeholder="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+      />
+    </div>
+    <div>
+      <input
+        type="password"
+        placeholder="Check password"
+        name="passwordCheck"
+        [(ngModel)]="passwordCheck"
+      />
+    </div>
+    <button (click)="SignUp()" type="submit">Sign up</button>
+  </form>
+</div>

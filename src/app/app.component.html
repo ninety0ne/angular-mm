@@ -1,16 +1,11 @@
-<div class="navbar" role="banner">
-  <a href="/">
-    <img width="40" alt="MatrixMoestuin Logo" src="../assets/logo-mm.svg" />
-  </a>
-  <span>Matrix Moestuin</span>
-  <nav class="nav-navbar">
-    <ul class="ul-navbar">
-      <li><a href="/login">Login</a></li>
-      <li><a href="/signup">Sign up</a></li>
-    </ul>
-  </nav>
+<div class="header" role="banner">
+  <app-navbar></app-navbar>
 </div>
 
 <div class="content" role="main">
   <router-outlet></router-outlet>
+</div>
+
+<div class="footer" role="banner">
+  <app-footer></app-footer>
 </div>

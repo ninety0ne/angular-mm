@@ -8,36 +8,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  background-color: #1976d2;
-  color: white;
-  font-weight: 600;
-}
-
-.navbar img {
-  margin: 0 16px;
-}
-
-.navbar ul {
-  list-style: none;
-  text-decoration: none;
-}
-
-.navbar ul li a {
-  color: white;
-}
-
-.navbar ul li a:hover {
-  color: lightblue;
-}
-
 .content {
   display: flex;
   margin: 82px auto 32px;
@@ -46,5 +16,3 @@
   flex-direction: column;
   align-items: center;
 }
-
-/* Responsive Styles */
