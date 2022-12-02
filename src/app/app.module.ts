@@ -18,7 +18,11 @@ import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AuthHandlerComponent } from './auth/auth-handler/auth-handler.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { SignoutComponent } from './components/signout/signout.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DashnavComponent } from './components/dashnav/dashnav.component';
+import { PlantsComponent } from './pages/dashboard/plants/plants.component';
+import { InsightsComponent } from './pages/dashboard/insights/insights.component';
+import { NotificationsComponent } from './pages/dashboard/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { SignoutComponent } from './components/signout/signout.component';
     SignupComponent,
     AuthHandlerComponent,
     DashboardComponent,
-    SignoutComponent,
+    DashnavComponent,
+    PlantsComponent,
+    InsightsComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +49,7 @@ import { SignoutComponent } from './components/signout/signout.component';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

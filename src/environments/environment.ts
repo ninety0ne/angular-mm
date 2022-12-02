@@ -1,14 +1,14 @@
-import { firebaseEnv } from './environment.prod';
+import { environmentProd } from './environment.prod';
 
 export const environment = {
   firebase: {
-    apiKey: firebaseEnv.firebase.apiKey,
-    authDomain: firebaseEnv.firebase.authDomain,
-    projectId: firebaseEnv.firebase.projectId,
-    storageBucket: firebaseEnv.firebase.storageBucket,
-    messagingSenderId: firebaseEnv.firebase.messagingSenderId,
-    appId: firebaseEnv.firebase.appId,
-    measurementId: firebaseEnv.firebase.measurementId,
+    apiKey: environmentProd.firebase.apiKey,
+    authDomain: environmentProd.firebase.authDomain,
+    projectId: environmentProd.firebase.projectId,
+    storageBucket: environmentProd.firebase.storageBucket,
+    messagingSenderId: environmentProd.firebase.messagingSenderId,
+    appId: environmentProd.firebase.appId,
+    measurementId: environmentProd.firebase.measurementId,
   },
   production: false,
 };

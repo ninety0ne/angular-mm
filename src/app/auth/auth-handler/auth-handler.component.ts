@@ -44,11 +44,20 @@ export class AuthHandlerComponent implements OnInit {
     this.fireAuth.signOut().then(
       () => {
         localStorage.removeItem('token');
-        this.router.navigate(['/']);
+        this.router.navigate(['/signin']);
       },
       (error) => {
         console.log(error);
       }
     );
+  }
+
+  UserSignedIn(): boolean {
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['/signin']);
+      return false;
+    } else {
+      return true;
+    }
   }
 }

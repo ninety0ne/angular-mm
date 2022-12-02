@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav
+      id="sidebarMenu"
+      class="nav-sideways col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+    >
+      <div class="position-sticky pt-3 sidebar-sticky">
+        <div>
+          <div class="div-spacing">
+            <img class="dash-logo" src="../../../assets/logo-mm.svg" />
+            <span class="dash-company">Matrix dashboard</span>
+          </div>
+        </div>
+
+        <div class="user-wrapper">
+          <h5>Welkom, Ben</h5>
+        </div>
+
+        <ul class="ul-nav nav flex-column">
+          <li class="nav-item">
+            <a routerLink="/dashboard" class="nav-link" href="#">
+              <fa-icon [icon]="faDashboard"></fa-icon>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/dashboard/plants" class="nav-link" href="#">
+              <fa-icon [icon]="faSeedling"></fa-icon>
+              Planten
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/dashboard/insights" class="nav-link" href="#">
+              <fa-icon [icon]="faChartLine"></fa-icon>
+              Inzicht
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/dashboard/notifications" class="nav-link" href="#">
+              <fa-icon [icon]="faBell"></fa-icon>
+              Notificaties
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-dash col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <header
+        class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
+      >
+        <div class="spacer"></div>
+        <button
+          class="navbar-toggler position-absolute d-md-none collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-nav">
+          <div class="nav-item text-nowrap">
+            <a (click)="SignOut()" class="nav-link px-3" href="#">Sign out</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>

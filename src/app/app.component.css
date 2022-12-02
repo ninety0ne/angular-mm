@@ -10,9 +10,19 @@
 
 .content {
   display: flex;
-  margin: 82px auto 32px;
-  padding: 0 16px;
-  max-width: 960px;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: column;
+  height: calc(100vh - 60px);
+}
+.inner-placeholder {
+  flex: 1;
+}
+app-footer {
+  flex: auto;
+}
+app-navbar {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  height: 0px;
+  z-index: 10;
 }

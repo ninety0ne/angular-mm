@@ -1,1 +1,84 @@
-<p>home works!</p>
+<section class="hero-section">
+  <div class="hero-wrapper">
+    <div class="hero-text">
+      <img class="hero-logo" src="../../../assets/icon.png" />
+      <h1 style="font-size: 50px">Matrix Moestuin</h1>
+      <h6>De geautomatiseerde moestuin!</h6>
+      <button
+        (click)="scroll(aboutSection)"
+        type="button"
+        class="hero-btn btn btn-primary btn-success"
+      >
+        Over ons
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="card-section">
+  <div class="card-wrapper">
+    <h1>Tips</h1>
+    <div class="card mb-3">
+      <img
+        src="../../../assets/card-banner2.png"
+        class="card-image card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Hoe koppel ik mijn MatrixMoestuin?</h5>
+        <p class="card-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ex
+          optio iste aperiam ea? Nisi pariatur quam eum eius quod repellendus.
+          Illo cupiditate dolorum laborum doloremque, eum deserunt officiis
+          facilis?
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Ben van der Linden</small>
+        </p>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <img
+        src="../../../assets/card-banner.png"
+        class="card-image card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Hoe verbouw ik planten?</h5>
+        <p class="card-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ex
+          optio iste aperiam ea? Nisi pariatur quam eum eius quod repellendus.
+          Illo cupiditate dolorum laborum doloremque, eum deserunt officiis
+          facilis?
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Sid Grouwels</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section #aboutSection class="about-section">
+  <div class="about-wrapper">
+    <h1>Over ons</h1>
+    <h5>Wie zijn wij?</h5>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus
+      distinctio vel enim voluptates dolorum nihil aspernatur, amet architecto
+      quo odio pariatur omnis commodi repudiandae, eveniet debitis est maiores
+      ipsum dolorem.
+    </p>
+
+    <h5>Wat doen we?</h5>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus
+      distinctio vel enim voluptates dolorum nihil aspernatur, amet architecto
+      quo odio pariatur omnis commodi repudiandae, eveniet debitis est maiores
+      ipsum dolorem.
+    </p>
+
+    <h5>Waarom?</h5>
+    <p>Omdat het moet.</p>
+  </div>
+</section>

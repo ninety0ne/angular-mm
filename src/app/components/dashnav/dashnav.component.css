@@ -1,0 +1,74 @@
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.content {
+  margin: 1%;
+}
+
+.user-wrapper {
+  border-top: gray;
+  border-top-style: solid;
+  border-top-width: 1px;
+
+  border-bottom: gray;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+
+  text-align: center;
+}
+
+.user-wrapper h5 {
+  margin: 5%;
+}
+
+.div-spacing {
+  margin: 5%;
+}
+
+.dash-logo {
+  width: 50px;
+}
+
+.dash-company {
+  font-size: large;
+  margin-left: 5%;
+}
+
+.spacer {
+  display: flex;
+  flex: 1;
+}
+
+.ul-nav {
+  margin-top: 5%;
+}
+
+.ul-nav li a {
+  color: gray !important;
+}
+
+.ul-nav li a:hover {
+  color: #333 !important;
+}
+
+.nav-sideways {
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  background-color: #eee !important;
+}
+
+.navbar {
+  background: #198754 !important;
+}
+
+.main-dash {
+  padding: 0 !important;
+}
+
+.dash-wrapper {
+  padding: 10 !important;
+}
