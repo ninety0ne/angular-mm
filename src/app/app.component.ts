@@ -8,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'matrixmoestuin';
   constructor() {}
+
   ngOnInit(): void {}
 
   UserSignedIn() {
-    return localStorage.getItem('token');
+    return localStorage.getItem('jwt');
   }
 }

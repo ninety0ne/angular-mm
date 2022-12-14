@@ -3,11 +3,11 @@
     class="navbar sticky-top navbar-expand-lg navbar-expand-sm navbar-light bg-white py-3 shadow-sm"
   >
     <div class="container">
-      <img
-        class="navbar-brand navbar-image"
-        src="../../../assets/logo-mm.svg"
-      />
       <a class="navbar-brand" routerLink="/">
+        <img
+          class="navbar-brand navbar-image"
+          src="../../../assets/logo-mm.svg"
+        />
         <strong class="h6 mb-0 font-weight-bold text-capitalize"
           >matrix moestuin</strong
         ></a
@@ -29,26 +29,6 @@
         <div class="spacer"></div>
 
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a
-              routerLink="/"
-              [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="{ exact: true }"
-              class="nav-link header-links"
-              *ngIf="!UserSignedIn()"
-              >Home</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              routerLink="/dashboard"
-              [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="{ exact: true }"
-              class="nav-link header-links"
-              *ngIf="UserSignedIn()"
-              >Dashboard</a
-            >
-          </li>
           <li class="nav-item" *ngIf="!UserSignedIn()">
             <a
               routerLink="/signin"
@@ -65,15 +45,6 @@
               [routerLinkActiveOptions]="{ exact: true }"
               class="nav-link header-links"
               >Sign up</a
-            >
-          </li>
-          <li class="nav-item" *ngIf="UserSignedIn()">
-            <a
-              (click)="SignOut()"
-              [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="{ exact: true }"
-              class="nav-link header-links"
-              >Sign out</a
             >
           </li>
         </ul>

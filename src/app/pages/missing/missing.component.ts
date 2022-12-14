@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-missing',
   templateUrl: './missing.component.html',
-  styleUrls: ['./missing.component.css']
+  styleUrls: ['./missing.component.css'],
 })
-export class MissingComponent {
+export class MissingComponent implements OnInit {
+  constructor() {}
 
+  public buttonText: string = '';
+
+  ngOnInit(): void {
+    if (!localStorage.getItem('token')) {
+      this.buttonText = 'home';
+      return;
+    }
+
+    this.buttonText = 'dashboard';
+  }
 }

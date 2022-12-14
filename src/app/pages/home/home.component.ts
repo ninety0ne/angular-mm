@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthHandlerComponent } from 'src/app/auth/auth-handler/auth-handler.component';
 import { Router } from '@angular/router';
+import { AuthHandlerService } from 'src/app/core/auth/auth-handler.service';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private auth: AuthHandlerComponent, private router: Router) {}
+  constructor(
+    private authService: AuthHandlerService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    if (this.auth.UserSignedIn()) {
+    if (this.authService.UserSignedIn()) {
       this.router.navigate(['/dashboard']);
     } else {
       this.router.navigate(['/']);

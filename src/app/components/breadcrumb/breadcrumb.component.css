@@ -1,0 +1,13 @@
+.breadcrumb a {
+  color: #6c757d;
+  text-decoration: none;
+}
+
+.breadcrumb-item + .active {
+  color: black;
+}
+
+.breadcrumb a:hover {
+  color: black;
+  text-decoration: underline;
+}

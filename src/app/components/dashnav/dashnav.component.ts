@@ -1,12 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthHandlerComponent } from 'src/app/auth/auth-handler/auth-handler.component';
+import { Router } from '@angular/router';
 
 import {
   faGauge,
+  faHouse,
   faSeedling,
   faChartLine,
   faBell,
+  faLightbulb,
+  faGear,
+  faUserGear,
+  faDroplet,
+  faPlantWilt,
+  faFaucetDrip,
+  faDoorOpen,
+  faChevronUp,
 } from '@fortawesome/free-solid-svg-icons';
+import { AuthHandlerService } from 'src/app/core/auth/auth-handler.service';
+import { UserDataService } from 'src/app/core/data/user-data.service';
 
 @Component({
   selector: 'app-dashnav',
@@ -14,16 +25,34 @@ import {
   styleUrls: ['./dashnav.component.css'],
 })
 export class DashnavComponent implements OnInit {
-  constructor(private auth: AuthHandlerComponent) {}
+  public userName: string;
 
-  ngOnInit(): void {}
+  constructor(
+    private authService: AuthHandlerService,
+    private userData: UserDataService
+  ) {}
+
+  ngOnInit(): void {
+    this.userData.GetUserData().subscribe((userData) => {
+      this.userName = userData.UserName;
+    });
+  }
 
   SignOut() {
-    this.auth.SignOut();
+    this.authService.SignOut();
   }
 
   faDashboard = faGauge;
+  faHouse = faHouse;
   faSeedling = faSeedling;
   faChartLine = faChartLine;
   faBell = faBell;
+  faLightbulb = faLightbulb;
+  faGear = faGear;
+  faUserGear = faUserGear;
+  faDroplet = faDroplet;
+  faPlantWilt = faPlantWilt;
+  faFaucetDrip = faFaucetDrip;
+  faDoorOpen = faDoorOpen;
+  faChevron = faChevronUp;
 }

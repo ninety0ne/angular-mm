@@ -1,82 +1,64 @@
-<section class="h-100 gradient-form" style="background-color: #eee">
+<section class="signin-section h-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-xl-10">
-        <div class="card rounded-3 text-black">
-          <div class="row g-0">
-            <div class="col-lg-6">
-              <div class="card-body p-md-5 mx-md-4">
-                <div class="text-center">
-                  <img
-                    src="../../../assets/logo-mm.svg"
-                    style="width: 185px"
-                    alt="logo"
-                  />
-                  <h4 class="mt-1 mb-5 pb-1">Welkom terug</h4>
-                </div>
-
-                <form>
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example11">Email</label>
-                    <input
-                      type="email"
-                      id="form2Example11"
-                      class="form-control"
-                      placeholder="Email address"
-                      name="email"
-                      [(ngModel)]="email"
-                    />
-                  </div>
-
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example22"
-                      >Password</label
-                    >
-                    <input
-                      type="password"
-                      id="form2Example22"
-                      class="form-control"
-                      placeholder="Password"
-                      name="password"
-                      [(ngModel)]="password"
-                    />
-                  </div>
-
-                  <div class="text-center pt-1 mb-5 pb-1">
-                    <button
-                      (click)="SignIn()"
-                      class="signin-button btn"
-                      type="submit"
-                    >
-                      Sign in
-                    </button>
-                    <a class="text-muted" href="#!">Forgot password?</a>
-                  </div>
-
-                  <div
-                    class="d-flex align-items-center justify-content-center pb-4"
-                  >
-                    <p class="mb-0 me-2">Don't have an account?</p>
-                    <button type="button" class="btn btn-outline-success">
-                      Create new
-                    </button>
-                  </div>
-                </form>
-              </div>
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem">
+          <div class="card-body p-5">
+            <div class="logo-wrapper text-center">
+              <img src="../../../assets/logo-mm.svg" />
+              Sign in
             </div>
-            <div
-              class="col-lg-6 d-flex align-items-center wrapper-right rounded-end"
-            >
-              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">We are more than just a company</h4>
-                <p class="small mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+
+            <hr class="my-4" />
+
+            <form [formGroup]="signInForm">
+              <div class="form-outline mb-4">
+                <label class="form-label" for="username-input">Username</label>
+                <input
+                  formControlName="UserName"
+                  type="username"
+                  id="username-input"
+                  class="form-control form-control-lg"
+                  name="username"
+                />
               </div>
-            </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="password-input"
+                  >Wachtwoord</label
+                >
+                <input
+                  formControlName="Password"
+                  type="password"
+                  id="password-input"
+                  class="form-control form-control-lg"
+                  name="password"
+                />
+              </div>
+
+              <div class="d-flex justify-content-start mb-4">
+                <a class="text-muted" routerLink="/forgotpassword"
+                  >Wachtwoord vergeten?</a
+                >
+              </div>
+
+              <button
+                (click)="SignIn()"
+                class="signin-button btn btn-success btn-lg btn-block"
+                type="submit"
+              >
+                Log in
+              </button>
+
+              <hr class="my-4" />
+
+              <div class="d-flex justify-content-center mb-4 text-muted">
+                Nog geen account?&nbsp;
+                <a class="text-muted" routerLink="/signup"
+                  >Maak er een aan :)</a
+                >
+              </div>
+            </form>
           </div>
         </div>
       </div>

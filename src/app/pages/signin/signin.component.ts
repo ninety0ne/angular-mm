@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthHandlerComponent } from '../../auth/auth-handler/auth-handler.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthHandlerService } from 'src/app/core/auth/auth-handler.service';
 
 @Component({
   selector: 'app-signin',
@@ -7,22 +8,18 @@ import { AuthHandlerComponent } from '../../auth/auth-handler/auth-handler.compo
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  email: string = '';
-  password: string = '';
+  signInForm: FormGroup;
 
-  constructor(private auth: AuthHandlerComponent) {}
-  ngOnInit(): void {}
+  constructor(
+    private authService: AuthHandlerService,
+    private formBuilder: FormBuilder
+  ) {}
+
+  ngOnInit(): void {
+    this.signInForm = this.formBuilder.group({ UserName: '', Password: '' });
+  }
 
   SignIn() {
-    if (!this.email) {
-      alert('Please enter your E-Mail');
-      return;
-    }
-    if (!this.password) {
-      alert('Please enter your password');
-      return;
-    }
-
-    this.auth.SignIn(this.email, this.password);
+    this.authService.SignIn(this.signInForm.getRawValue());
   }
 }

@@ -22,7 +22,7 @@ export class IsSignedInGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (!localStorage.getItem('token')) {
+    if (!localStorage.getItem('jwt')) {
       return true;
     } else {
       this.router.navigate(['/']);

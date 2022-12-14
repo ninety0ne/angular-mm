@@ -1,5 +1,7 @@
-import { Component, OnInit, Injectable } from '@angular/core';
-import { AuthHandlerComponent } from '../../auth/auth-handler/auth-handler.component';
+import { Component, OnInit, Injectable, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthHandlerService } from 'src/app/core/auth/auth-handler.service';
+import { Md5 } from 'ts-md5';
 
 @Injectable({
   providedIn: 'root',
@@ -10,33 +12,23 @@ import { AuthHandlerComponent } from '../../auth/auth-handler/auth-handler.compo
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  email: string = '';
-  password: string = '';
-  passwordCheck: string = '';
+  signUpForm: FormGroup;
+  md5 = new Md5();
 
-  constructor(private auth: AuthHandlerComponent) {}
+  constructor(
+    private authService: AuthHandlerService,
+    private formBuilder: FormBuilder
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.signUpForm = this.formBuilder.group({
+      UserName: ['', Validators.required],
+      Password: ['', Validators.required],
+      Email: ['', [Validators.required, Validators.email, Validators.min(1)]],
+    });
+  }
 
   SignUp() {
-    if (!this.email) {
-      alert('Please enter your E-Mail');
-      return;
-    }
-    if (!this.password) {
-      alert('Please enter your password');
-      return;
-    }
-    if (!this.passwordCheck) {
-      alert('Please re-enter your password');
-      return;
-    }
-
-    if (this.password !== this.passwordCheck) {
-      alert("Passwords don't match");
-      return;
-    }
-
-    this.auth.SignUp(this.email, this.password);
+    this.authService.SignUp(this.signUpForm.getRawValue());
   }
 }

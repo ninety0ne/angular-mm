@@ -6,14 +6,13 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-
-import { AuthHandlerComponent } from 'src/app/auth/auth-handler/auth-handler.component';
+import { AuthHandlerService } from '../auth/auth-handler.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserAuthenticatedGuard implements CanActivate {
-  constructor(private guardAuth: AuthHandlerComponent) {}
+  constructor(private authService: AuthHandlerService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -23,6 +22,6 @@ export class UserAuthenticatedGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.guardAuth.UserSignedIn();
+    return this.authService.UserSignedIn();
   }
 }

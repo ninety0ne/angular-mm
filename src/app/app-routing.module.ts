@@ -7,12 +7,16 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserAuthenticatedGuard } from './core/guards/user-authenticated.guard';
 import { IsSignedInGuard } from './core/guards/is-signed-in.guard';
-import { AuthHandlerComponent } from './auth/auth-handler/auth-handler.component';
 
 //Dashboard components
+import { DashboardContentComponent } from './pages/dashboard/dashboard-content/dashboard-content.component';
 import { PlantsComponent } from './pages/dashboard/plants/plants.component';
 import { InsightsComponent } from './pages/dashboard/insights/insights.component';
 import { NotificationsComponent } from './pages/dashboard/notifications/notifications.component';
+import { TipsComponent } from './pages/dashboard/tips/tips.component';
+import { IrrigerenComponent } from './pages/dashboard/irrigeren/irrigeren.component';
+import { StatusComponent } from './pages/dashboard/status/status.component';
+import { AccountComponent } from './pages/dashboard/account/account.component';
 
 const routes: Routes = [
   //Public routes
@@ -37,27 +41,74 @@ const routes: Routes = [
   //Protected routes
   {
     path: 'dashboard',
-    title: 'MatrixMoestuin - Dashboard',
     component: DashboardComponent,
     canActivate: [UserAuthenticatedGuard],
-  },
-  {
-    path: 'dashboard/plants',
-    title: 'MatrixMoestuin - Planten',
-    component: PlantsComponent,
-    canActivate: [UserAuthenticatedGuard],
-  },
-  {
-    path: 'dashboard/insights',
-    title: 'MatrixMoestuin - Planten',
-    component: InsightsComponent,
-    canActivate: [UserAuthenticatedGuard],
-  },
-  {
-    path: 'dashboard/notifications',
-    title: 'MatrixMoestuin - Planten',
-    component: NotificationsComponent,
-    canActivate: [UserAuthenticatedGuard],
+    children: [
+      {
+        path: '',
+        title: 'MatrixMoestuin - Dashboard',
+        component: DashboardContentComponent,
+        canActivate: [UserAuthenticatedGuard],
+        data: { breadcrumb: { alias: 'dashboard' } },
+      },
+      {
+        path: 'plants',
+        title: 'MatrixMoestuin - Planten',
+        component: PlantsComponent,
+        canActivate: [UserAuthenticatedGuard],
+        data: { breadcrumb: { alias: 'plants' } },
+      },
+      {
+        path: 'insights',
+        title: 'MatrixMoestuin - Inzichten',
+        component: InsightsComponent,
+        canActivate: [UserAuthenticatedGuard],
+        data: { breadcrumb: { alias: 'insights' } },
+      },
+      {
+        path: 'notifications',
+        title: 'MatrixMoestuin - Notificaties',
+        component: NotificationsComponent,
+        canActivate: [UserAuthenticatedGuard],
+        data: { breadcrumb: { alias: 'notifications' } },
+      },
+      {
+        path: 'tips',
+        title: 'MatrixMoestuin - Tips',
+        component: TipsComponent,
+        canActivate: [UserAuthenticatedGuard],
+        data: { breadcrumb: { alias: 'tips' } },
+      },
+      {
+        path: 'irrigeren',
+        title: 'MatrixMoestuin - Irrigeren',
+        component: IrrigerenComponent,
+        canActivate: [UserAuthenticatedGuard],
+        data: { breadcrumb: { alias: 'irrigeren' } },
+      },
+      {
+        path: 'status',
+        title: 'MatrixMoestuin - Status',
+        component: StatusComponent,
+        canActivate: [UserAuthenticatedGuard],
+        data: { breadcrumb: { alias: 'status' } },
+      },
+      {
+        path: 'settings',
+        title: 'MatrixMoestuin - Instellingen',
+        component: MissingComponent,
+        canActivate: [UserAuthenticatedGuard],
+        data: { breadcrumb: { alias: 'settings' } },
+      },
+      {
+        path: 'account',
+        title: 'MatrixMoestuin - Account',
+        component: AccountComponent,
+        canActivate: [UserAuthenticatedGuard],
+        data: { breadcrumb: { alias: 'account' } },
+      },
+      { path: '**', component: MissingComponent },
+    ],
   },
 
   //Wildcard route
@@ -67,6 +118,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthHandlerComponent],
+  providers: [],
 })
 export class AppRoutingModule {}

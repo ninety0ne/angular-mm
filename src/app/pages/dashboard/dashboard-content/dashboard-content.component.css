@@ -1,0 +1,22 @@
+.card-section {
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.card-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.spacer {
+  margin: 10%;
+}
+
+.card {
+  border-style: none;
+
+  box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.3);
+}

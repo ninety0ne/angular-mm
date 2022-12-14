@@ -2,9 +2,7 @@
 
 <div class="content" role="main">
   <div class="inner-placeholder">
-    <router-outlet *ngIf="!UserSignedIn()"></router-outlet>
-
-    <app-dashnav *ngIf="UserSignedIn()"></app-dashnav>
+    <router-outlet></router-outlet>
 
     <div class="footer" role="banner">
       <app-footer *ngIf="!UserSignedIn()"></app-footer>

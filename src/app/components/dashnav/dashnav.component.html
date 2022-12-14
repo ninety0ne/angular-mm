@@ -1,77 +1,244 @@
-<div class="container-fluid">
-  <div class="row">
-    <nav
-      id="sidebarMenu"
-      class="nav-sideways col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
-    >
-      <div class="position-sticky pt-3 sidebar-sticky">
-        <div>
-          <div class="div-spacing">
-            <img class="dash-logo" src="../../../assets/logo-mm.svg" />
-            <span class="dash-company">Matrix dashboard</span>
-          </div>
-        </div>
-
-        <div class="user-wrapper">
-          <h5>Welkom, Ben</h5>
-        </div>
-
-        <ul class="ul-nav nav flex-column">
-          <li class="nav-item">
-            <a routerLink="/dashboard" class="nav-link" href="#">
-              <fa-icon [icon]="faDashboard"></fa-icon>
-              Dashboard
-            </a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/dashboard/plants" class="nav-link" href="#">
-              <fa-icon [icon]="faSeedling"></fa-icon>
-              Planten
-            </a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/dashboard/insights" class="nav-link" href="#">
-              <fa-icon [icon]="faChartLine"></fa-icon>
-              Inzicht
-            </a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/dashboard/notifications" class="nav-link" href="#">
-              <fa-icon [icon]="faBell"></fa-icon>
-              Notificaties
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <main class="main-dash col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <header
-        class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
+<div>
+  <div class="container-fluid">
+    <div class="row">
+      <nav
+        id="sidebarMenu"
+        class="nav-sideways col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
       >
-        <div class="spacer"></div>
-        <button
-          class="navbar-toggler position-absolute d-md-none collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#sidebarMenu"
-          aria-controls="sidebarMenu"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="nav-sticky position-sticky pt-3 sidebar-sticky">
+          <div class="branding-div">
+            <div>
+              <img class="dash-logo" src="../../../assets/icon.png" />
+            </div>
+            <h6 class="dash-company">Matrix Dashboard</h6>
+          </div>
 
-        <div class="navbar-nav">
-          <div class="nav-item text-nowrap">
-            <a (click)="SignOut()" class="nav-link px-3" href="#">Sign out</a>
+          <ul class="m-d expand-list" id="sidebarMenu">
+            <h5 class="text-center">Welkom {{ userName }}</h5>
+            <li data-md-content="200">
+              <label
+                name="tab"
+                for="tab1"
+                tabindex="-1"
+                class="tab_lab"
+                role="tab"
+                ><fa-icon class="icon-spacing" [icon]="faDashboard"></fa-icon
+                >Dashboard</label
+              >
+              <input type="checkbox" class="tab" id="tab1" tabindex="0" />
+              <span class="open-close-icon">
+                <fa-icon
+                  [icon]="faChevron"
+                  class="fa-icon fas fa-plus"
+                ></fa-icon>
+                <fa-icon
+                  [icon]="faChevron"
+                  class="fa-icon fas fa-minus"
+                ></fa-icon>
+              </span>
+              <div class="head-spacing content">
+                <ul class="ul-nav nav flex-column ml-auto">
+                  <li class="nav-item">
+                    <a
+                      routerLink="/dashboard"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      class="nav-link header-links"
+                    >
+                      <fa-icon [icon]="faHouse"></fa-icon>
+                      Algemeen
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      routerLink="/dashboard/plants"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      class="nav-link header-links"
+                    >
+                      <fa-icon [icon]="faSeedling"></fa-icon>
+                      Planten
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      routerLink="/dashboard/insights"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      class="nav-link header-links"
+                    >
+                      <fa-icon [icon]="faChartLine"></fa-icon>
+                      Inzicht
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      routerLink="/dashboard/notifications"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      class="nav-link header-links"
+                    >
+                      <fa-icon [icon]="faBell"></fa-icon>
+                      Notificaties
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      routerLink="/dashboard/tips"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      class="nav-link header-links"
+                    >
+                      <fa-icon [icon]="faLightbulb"></fa-icon>
+                      Tips
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li data-md-content="300">
+              <label
+                name="tab"
+                for="tab2"
+                tabindex="-1"
+                class="tab_lab"
+                role="tab"
+                ><fa-icon class="icon-spacing" [icon]="faDroplet"></fa-icon
+                >Irrigatie</label
+              >
+              <input type="checkbox" class="tab" id="tab2" tabindex="0" />
+              <span class="open-close-icon">
+                <fa-icon
+                  [icon]="faChevron"
+                  class="fa-icon fas fa-plus"
+                ></fa-icon>
+                <fa-icon
+                  [icon]="faChevron"
+                  class="fa-icon fas fa-minus"
+                ></fa-icon>
+              </span>
+              <div class="head-spacing content">
+                <ul class="ul-nav nav flex-column ml-auto">
+                  <li class="nav-item">
+                    <a
+                      routerLink="/dashboard/irrigeren"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      class="nav-link header-links"
+                    >
+                      <fa-icon [icon]="faFaucetDrip"></fa-icon>
+                      Irrigeren
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a
+                      routerLink="/dashboard/status"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      class="nav-link header-links"
+                    >
+                      <fa-icon [icon]="faPlantWilt"></fa-icon>
+                      Status
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li data-md-content="600">
+              <label
+                name="tab"
+                for="tab3"
+                tabindex="-1"
+                class="tab_lab"
+                role="tab"
+                ><fa-icon class="icon-spacing" [icon]="faGear"></fa-icon
+                >Instellingen</label
+              >
+              <input type="checkbox" class="tab" id="tab3" tabindex="0" />
+              <span class="open-close-icon"
+                ><fa-icon
+                  [icon]="faChevron"
+                  class="fa-icon fas fa-plus"
+                ></fa-icon>
+                <fa-icon
+                  [icon]="faChevron"
+                  class="fa-icon fas fa-minus"
+                ></fa-icon
+              ></span>
+              <div class="head-spacing content">
+                <ul class="ul-nav nav flex-column ml-auto">
+                  <li class="nav-item">
+                    <a
+                      routerLink="/dashboard/account"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      class="nav-link header-links"
+                    >
+                      <fa-icon [icon]="faUserGear"></fa-icon>
+                      Account
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="signout-container">
+          <div class="signout-wrapper">
+            <button
+              (click)="SignOut()"
+              class="signout-button btn btn-dark"
+              type="button"
+            >
+              <fa-icon [icon]="faDoorOpen"></fa-icon> Sign out
+            </button>
           </div>
         </div>
-      </header>
+      </nav>
 
-      <div class="content">
-        <router-outlet></router-outlet>
-      </div>
-    </main>
+      <main class="main-dash col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <header
+          class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
+        >
+          <button
+            class="shadow-none navbar-toggler d-md-none collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu"
+            aria-controls="sidebarMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="spacer">
+            <div class="dropdown">
+              <button
+                class="themes-button btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Themas
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Light mode</a></li>
+                <li><a class="dropdown-item" href="#">Dark mode</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="user-wrapper">
+            <h6>{{ userName }}</h6>
+          </div>
+        </header>
+
+        <div class="content">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
+    </div>
   </div>
 </div>

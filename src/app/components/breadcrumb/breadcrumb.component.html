@@ -1,0 +1,10 @@
+<nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/dashboard">{{ parentRoute }}</a>
+    </li>
+    <li *ngIf="childRoute" class="breadcrumb-item active" aria-current="page">
+      {{ childRoute }}
+    </li>
+  </ol>
+</nav>

@@ -1,0 +1,31 @@
+.content {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.oops-heading {
+  background: url(../../../assets/forest2.jpg) no-repeat;
+  background-size: cover;
+  font-weight: 900;
+  font-size: 15vw;
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.oops-container {
+  margin-top: 10% !important;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.return-button {
+  border-radius: 20px;
+  width: 180px;
+  box-shadow: 0 4px 15px -5px #198754;
+}
