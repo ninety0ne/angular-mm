@@ -23,6 +23,7 @@ import { TipsComponent } from './pages/dashboard/tips/tips.component';
 import { IrrigerenComponent } from './pages/dashboard/irrigeren/irrigeren.component';
 import { StatusComponent } from './pages/dashboard/status/status.component';
 import { AccountComponent } from './pages/dashboard/account/account.component';
+import { ScoreComponent } from './pages/dashboard/score/score.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AccountComponent } from './pages/dashboard/account/account.component';
     IrrigerenComponent,
     StatusComponent,
     AccountComponent,
+    ScoreComponent,
   ],
   imports: [
     BrowserModule,

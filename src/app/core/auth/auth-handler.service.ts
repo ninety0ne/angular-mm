@@ -43,11 +43,21 @@ export class AuthHandlerService {
     });
 
     localStorage.removeItem('jwt');
-    localStorage.removeItem('admin');
-
     if (!localStorage.getItem('jwt')) {
       this.router.navigate(['/']);
     } else return;
+  }
+
+  SendUserScore(userScore: object) {
+    this.httpClient
+      .post(this.apiUrl + 'UpdateUserScore', userScore, {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + localStorage.getItem('jwt'),
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        }),
+      })
+      .subscribe(() => {});
   }
 
   UserSignedIn(): boolean {

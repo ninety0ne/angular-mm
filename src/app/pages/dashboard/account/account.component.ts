@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UserDataService } from 'src/app/core/data/user-data.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-account',
@@ -8,21 +10,12 @@ import { UserDataService } from 'src/app/core/data/user-data.service';
 })
 export class AccountComponent implements OnInit {
   public userToken: string;
+  public userObserver: Observable<User>;
 
-  public userName: string;
-  public userEmail: string;
-  public userScore: number;
-  public userRole: boolean;
-
-  constructor(private userData: UserDataService) {}
+  constructor(private userDataService: UserDataService) {}
 
   ngOnInit(): void {
     this.userToken = JSON.stringify(localStorage.getItem('jwt'));
-    this.userData.GetUserData().subscribe((userData) => {
-      this.userName = userData.UserName;
-      this.userEmail = userData.Email;
-      this.userScore = userData.Score;
-      this.userRole = userData.Admin;
-    });
+    /*this.userObserver = this.userDataService.GetUserData();*/
   }
 }

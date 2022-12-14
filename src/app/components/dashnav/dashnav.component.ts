@@ -15,9 +15,12 @@ import {
   faFaucetDrip,
   faDoorOpen,
   faChevronUp,
+  faBurst,
 } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
 import { AuthHandlerService } from 'src/app/core/auth/auth-handler.service';
 import { UserDataService } from 'src/app/core/data/user-data.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-dashnav',
@@ -26,16 +29,15 @@ import { UserDataService } from 'src/app/core/data/user-data.service';
 })
 export class DashnavComponent implements OnInit {
   public userName: string;
+  public userObserver: Observable<User>;
 
   constructor(
     private authService: AuthHandlerService,
-    private userData: UserDataService
+    private userDataService: UserDataService
   ) {}
 
   ngOnInit(): void {
-    this.userData.GetUserData().subscribe((userData) => {
-      this.userName = userData.UserName;
-    });
+    this.userObserver = this.userDataService.GetUserData();
   }
 
   SignOut() {
@@ -55,4 +57,5 @@ export class DashnavComponent implements OnInit {
   faFaucetDrip = faFaucetDrip;
   faDoorOpen = faDoorOpen;
   faChevron = faChevronUp;
+  faBurst = faBurst;
 }

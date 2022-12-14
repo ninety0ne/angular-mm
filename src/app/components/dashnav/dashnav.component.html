@@ -14,7 +14,9 @@
           </div>
 
           <ul class="m-d expand-list" id="sidebarMenu">
-            <h5 class="text-center">Welkom {{ userName }}</h5>
+            <h5 class="text-center">
+              Welkom {{ (userObserver | async)?.UserName }}
+            </h5>
             <li data-md-content="200">
               <label
                 name="tab"
@@ -49,6 +51,19 @@
                       Algemeen
                     </a>
                   </li>
+
+                  <li class="nav-item">
+                    <a
+                      routerLink="/dashboard/score"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      class="nav-link header-links"
+                    >
+                      <fa-icon [icon]="faBurst"></fa-icon>
+                      Score
+                    </a>
+                  </li>
+
                   <li class="nav-item">
                     <a
                       routerLink="/dashboard/plants"
@@ -231,7 +246,7 @@
           </div>
 
           <div class="user-wrapper">
-            <h6>{{ userName }}</h6>
+            <h6>{{ (userObserver | async)?.UserName }}</h6>
           </div>
         </header>
 

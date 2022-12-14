@@ -1,17 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserDataService implements OnInit {
+export class UserDataService {
   private apiUrl = 'https://192.168.169.60/';
 
   constructor(private httpClient: HttpClient) {}
-
-  ngOnInit(): void {}
 
   GetUserData(): Observable<User> {
     return this.httpClient.get<User>(this.apiUrl + 'UserData', {

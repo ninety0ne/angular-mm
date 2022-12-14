@@ -17,6 +17,7 @@ import { TipsComponent } from './pages/dashboard/tips/tips.component';
 import { IrrigerenComponent } from './pages/dashboard/irrigeren/irrigeren.component';
 import { StatusComponent } from './pages/dashboard/status/status.component';
 import { AccountComponent } from './pages/dashboard/account/account.component';
+import { ScoreComponent } from './pages/dashboard/score/score.component';
 
 const routes: Routes = [
   //Public routes
@@ -106,6 +107,13 @@ const routes: Routes = [
         component: AccountComponent,
         canActivate: [UserAuthenticatedGuard],
         data: { breadcrumb: { alias: 'account' } },
+      },
+      {
+        path: 'score',
+        title: 'MatrixMoestuin - Score',
+        component: ScoreComponent,
+        canActivate: [UserAuthenticatedGuard],
+        data: { breadcrumb: { alias: 'score' } },
       },
       { path: '**', component: MissingComponent },
     ],
